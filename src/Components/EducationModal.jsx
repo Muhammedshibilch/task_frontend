@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { addEducationAPI } from '../services/allAPI'; // Import the addEducationAPI
+import { addEducationAPI } from '../services/allAPI'; 
 
 const EducationModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
-  // State variables to track form data
   const [collegeName, setCollegeName] = useState("");
   const [university, setUniversity] = useState("");
   const [degree, setDegree] = useState("");
@@ -14,12 +13,11 @@ const EducationModal = ({ isOpen, onClose }) => {
   const [endDate, setEndDate] = useState("");
   const [cgpa, setCgpa] = useState("");
 
-  // Handle form submission
   const handleSave = async (e) => {
     e.preventDefault();
   
     const token = sessionStorage.getItem('token');
-    console.log('Token:', token); // Log the token to debug
+    console.log('Token:', token); 
   
     if (!token) {
       alert('No authorization token found');
@@ -37,23 +35,22 @@ const EducationModal = ({ isOpen, onClose }) => {
       cgpa,
     };
   
-    // Validate required fields
     if (!studentStatus) {
       alert('Student Status is required');
       return;
     }
   
-    console.log('Education Data:', educationData); // Log the payload to debug
+    console.log('Education Data:', educationData); 
   
     try {
       const response = await addEducationAPI(educationData, {
         headers: {
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json', // Ensure the content type is set
+          'Content-Type': 'application/json', 
         },
       });
   
-      console.log('API Response:', response); // Log the response to debug
+      console.log('API Response:', response); 
   
       if (response.status === 200) {
         onClose();
@@ -64,7 +61,7 @@ const EducationModal = ({ isOpen, onClose }) => {
     } catch (error) {
       console.error('Error submitting education details:', error);
       if (error.response) {
-        console.error('Server Response:', error.response.data); // Log the server's error response
+        console.error('Server Response:', error.response.data); 
       }
       alert('Error submitting education details.');
     }

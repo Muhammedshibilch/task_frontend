@@ -41,12 +41,10 @@ const Auth = ({ setUser, insideRegister }) => {
         if (result.status === 200) {
           const userData = result.data.user;
           
-          // Store user in sessionStorage & update global state
           sessionStorage.setItem("user", JSON.stringify(userData));
           sessionStorage.setItem("token", result.data.token);
           setUser(userData);
 
-          // Redirect user after successful login
           navigate("/userprofile");
           setUserInput({ username: "", email: "", password: "" });
         } else if (result.response.status === 404) {
@@ -70,7 +68,6 @@ const Auth = ({ setUser, insideRegister }) => {
           Please {insideRegister ? 'sign up' : 'log in'} to continue
         </p>
 
-        {/* Register Form */}
         {insideRegister && (
           <>
             <MDBInput
@@ -90,7 +87,6 @@ const Auth = ({ setUser, insideRegister }) => {
           </>
         )}
 
-        {/* Common Fields (Email & Password) */}
         <MDBInput
           value={userInput.email}
           onChange={e => setUserInput({ ...userInput, email: e.target.value })}
@@ -106,7 +102,6 @@ const Auth = ({ setUser, insideRegister }) => {
           className="mt-2"
         />
 
-        {/* Buttons & Links */}
         {insideRegister ? (
           <div className="mt-4">
             <button onClick={register} className="bg-blue-600 text-white font-bold py-2 px-4 rounded w-full hover:bg-blue-800 transition duration-300">

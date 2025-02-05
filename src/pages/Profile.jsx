@@ -22,7 +22,6 @@ const Profile = () => {
     gender: ''
   });
 
-  // Fetch user data from API when the component mounts
   const fetchUserData = async () => {
     try {
       const token = sessionStorage.getItem('token');
@@ -52,12 +51,9 @@ const Profile = () => {
     fetchUserData();
   }, []);
 
-  // Function to handle the save operation when updating the profile
   const handleSave = (updatedData) => {
-    // Save the updated user data
     sessionStorage.setItem("user", JSON.stringify(updatedData));
 
-    // Update state immediately
     setUserDetails({
       username: updatedData.username,
       number: updatedData.number,
@@ -68,16 +64,14 @@ const Profile = () => {
       gender: updatedData.gender
     });
 
-    // Re-fetch the user data to ensure it's up to date from the backend
     fetchUserData();
 
-    setIsProfileModalOpen(false);  // Close the modal after saving
+    setIsProfileModalOpen(false);  
   };
 
     return (
     <>
       <div className="row">
-        {/* Left Column */}
         <div className="col-lg-1"></div>
         <div className="col-lg-3">
           <div className="bg-white shadow-md rounded-lg p-4 text-center">
@@ -120,7 +114,6 @@ const Profile = () => {
           </div>
         </div>
 
-        {/* Right Column */}
         <div className="col-lg-5">
           <div className="flex justify-between items-center">
             <h3 className="font-bold">Basic Information</h3>
@@ -163,12 +156,10 @@ const Profile = () => {
 
           <div className="bg-yellow-200 w-full p-4 mt-3 rounded-lg shadow-md">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-              {/* Left - Image */}
               <div className="w-20 md:w-24">
                 <img src={pay} alt="Payment Icon" className="w-full" />
               </div>
 
-              {/* Center - Text Content */}
               <div className="flex-1 text-center md:text-left">
                 <h2 className="text-black text-lg font-semibold">Payment Pending</h2>
                 <h3 className="text-gray-800 text-sm">
@@ -177,7 +168,6 @@ const Profile = () => {
                 </h3>
               </div>
 
-              {/* Right - Pay Now Button */}
               <div>
                 <button className="bg-red-600 text-white px-6 py-3 rounded-2xl shadow-md hover:bg-red-700 transition-all">
                   Pay Now
@@ -216,7 +206,6 @@ const Profile = () => {
           </div>
         </div>
 
-        {/* Right Sidebar */}
         <div className="col-lg-3 hidden md:block">
             <div className="bg-white shadow-md rounded-lg p-4">
                 <ul className="space-y-2">
@@ -238,7 +227,6 @@ const Profile = () => {
         <div className="col-lg-1"></div>
       </div>
 
-      {/* Modals */}
       <ProfileModal onSave={handleSave} isOpen={isProfileModalOpen} onClose={() => setIsProfileModalOpen(false)} />
               <EducationModal isOpen={isEducationModalOpen} onClose={() => setIsEducationModalOpen(false)} />
       <EditModal isOpen={isEditModalOpen} onClose={() => setIsEditModalOpen(false)} />

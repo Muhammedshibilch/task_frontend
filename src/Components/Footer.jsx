@@ -7,7 +7,6 @@ const Footer = () => {
      <footer className="bg-gray-100 py-8 text-gray-700">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-                    {/* Logo & Quick Links */}
                     <div className="col-span-1">
                         <img src={logo} alt="ASAP Logo" className="h-12 mb-4" />
                         <ul className="space-y-1 text-sm">
@@ -17,7 +16,6 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Internship by Stream */}
                     <div>
                         <h4 className="font-semibold text-gray-900">Internship by Stream</h4>
                         <ul className="text-sm space-y-1">
@@ -27,7 +25,6 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Jobs by Stream */}
                     <div>
                         <h4 className="font-semibold text-gray-900">Jobs by Stream</h4>
                         <ul className="text-sm space-y-1">
@@ -37,7 +34,6 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Guaranteed Courses */}
                     <div>
                         <h4 className="font-semibold text-gray-900">Guaranteed Courses</h4>
                         <ul className="text-sm space-y-1">
@@ -47,7 +43,6 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Explore Companies */}
                     <div>
                         <h4 className="font-semibold text-gray-900">Explore Companies</h4>
                         <ul className="text-sm space-y-1">
@@ -58,7 +53,6 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Support & Contact Section */}
                 <div className="bg-gray-50 rounded-lg p-6 mt-8 shadow-md">
                     <h4 className="font-semibold text-gray-900">Are you having any issues?</h4>
                     <div className="flex flex-col space-y-2 text-sm">
@@ -75,7 +69,6 @@ const Footer = () => {
                         </p>
                     </div>
 
-                    {/* Newsletter Subscription */}
                     <div className="mt-4">
                         <h4 className="font-semibold text-gray-900">Newsletter</h4>
                         <p className="text-sm text-gray-600">Never miss a beat with our newsletter updates!</p>
@@ -86,7 +79,6 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Social Media Links */}
                 <div className="flex justify-center space-x-4 mt-6">
                     {[
                         { icon: "https://careerlink.asapkerala.gov.in/img/icons/facebook.svg", alt: "Facebook" },
@@ -99,7 +91,6 @@ const Footer = () => {
                     ))}
                 </div>
 
-                {/* Copyright */}
                 <p className="text-center text-sm text-gray-500 mt-6">
                     © 2024 ASAP Kerala. All Rights Reserved | Powered by SRV InfoTech
                 </p>

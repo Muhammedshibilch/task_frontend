@@ -4,7 +4,6 @@ import { updateUserAPI } from "../services/allAPI";
 const ProfileModal = ({ isOpen, onClose, onSave }) => {
   if (!isOpen) return null;
 
-  // States to hold the updated user data
   const [username, setUsername] = useState("");
   const [number, setNumber] = useState("");
   const [email, setEmail] = useState("");
@@ -25,9 +24,7 @@ const ProfileModal = ({ isOpen, onClose, onSave }) => {
     }
   }, []);
 
-  // Handle form submission
   const handleSubmit = async () => {
-    // Construct the updated user data
     const updatedUser = {
       username,
       email,
@@ -42,18 +39,16 @@ const ProfileModal = ({ isOpen, onClose, onSave }) => {
       parentName,
     };
 
-    const token = sessionStorage.getItem("token"); // Get the JWT token
+    const token = sessionStorage.getItem("token"); 
 
-    // Send the update request to the backend
     try {
       const response = await updateUserAPI(updatedUser, {
         Authorization: `Bearer ${token}`,
       });
 
-      // Handle success (for example, show a success message)
       console.log("Profile updated:", response);
-      onSave(response); // Trigger callback function (e.g., to update state in parent)
-      onClose(); // Close the modal
+      onSave(response);
+      onClose(); 
     } catch (error) {
       console.error("Error updating profile:", error);
     }
@@ -62,15 +57,12 @@ const ProfileModal = ({ isOpen, onClose, onSave }) => {
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
       <div className="bg-white p-6 rounded-lg shadow-lg w-[600px] md:w-[700px] lg:w-[800px] max-h-[90vh] overflow-y-auto">
-        {/* Header Section */}
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-semibold">Basic Information</h2>
           <button onClick={onClose} className="text-gray-500 text-lg">✖</button>
         </div>
 
-        {/* Form Grid */}
         <div className="grid grid-cols-2 gap-4">
-          {/* Username */}
           <div className="col-span-1">
             <label className="block text-sm font-medium">Username *</label>
             <input
@@ -81,7 +73,6 @@ const ProfileModal = ({ isOpen, onClose, onSave }) => {
             />
           </div>
 
-          {/* Date of Birth */}
           <div className="col-span-1">
             <label className="block text-sm font-medium">Date of Birth *</label>
             <input
@@ -92,7 +83,6 @@ const ProfileModal = ({ isOpen, onClose, onSave }) => {
             />
           </div>
 
-          {/* Gender */}
           <div className="col-span-1">
             <label className="block text-sm font-medium">Gender *</label>
             <div className="flex space-x-3 mt-1">
@@ -129,7 +119,6 @@ const ProfileModal = ({ isOpen, onClose, onSave }) => {
             </div>
           </div>
 
-          {/* Mobile Number */}
           <div className="col-span-1 relative">
             <label className="block text-sm font-medium">Mobile *</label>
             <input
@@ -140,7 +129,6 @@ const ProfileModal = ({ isOpen, onClose, onSave }) => {
             />
           </div>
 
-          {/* Email */}
           <div className="col-span-1 relative">
             <label className="block text-sm font-medium">Email *</label>
             <input
@@ -151,7 +139,6 @@ const ProfileModal = ({ isOpen, onClose, onSave }) => {
             />
           </div>
 
-          {/* Aadhar */}
           <div className="col-span-1 relative">
             <label className="block text-sm font-medium">Aadhar *</label>
             <input
@@ -162,7 +149,6 @@ const ProfileModal = ({ isOpen, onClose, onSave }) => {
             />
           </div>
 
-          {/* Address */}
           <div className="col-span-2">
             <label className="block text-sm font-medium">Address *</label>
             <input
@@ -173,7 +159,6 @@ const ProfileModal = ({ isOpen, onClose, onSave }) => {
             />
           </div>
 
-          {/* State */}
           <div className="col-span-1">
             <label className="block text-sm font-medium">State *</label>
             <input
@@ -184,7 +169,6 @@ const ProfileModal = ({ isOpen, onClose, onSave }) => {
             />
           </div>
 
-          {/* District */}
           <div className="col-span-1">
             <label className="block text-sm font-medium">District *</label>
             <input
@@ -195,7 +179,6 @@ const ProfileModal = ({ isOpen, onClose, onSave }) => {
             />
           </div>
 
-          {/* Pincode */}
           <div className="col-span-1">
             <label className="block text-sm font-medium">Pincode *</label>
             <input
@@ -206,7 +189,6 @@ const ProfileModal = ({ isOpen, onClose, onSave }) => {
             />
           </div>
 
-          {/* Parent / Guardian Name */}
           <div className="col-span-1">
             <label className="block text-sm font-medium">Parent / Guardian Name</label>
             <input
@@ -218,7 +200,6 @@ const ProfileModal = ({ isOpen, onClose, onSave }) => {
           </div>
         </div>
 
-        {/* Footer Buttons */}
         <div className="flex justify-end space-x-4 mt-6">
           <button
             type="button"
@@ -229,7 +210,7 @@ const ProfileModal = ({ isOpen, onClose, onSave }) => {
           </button>
           <button
             type="button"
-            onClick={handleSubmit} // Call the submit handler
+            onClick={handleSubmit} 
             className="px-4 py-2 bg-red-500 text-white rounded"
           >
             Save Changes

@@ -9,7 +9,6 @@ import Footer from './Components/Footer';
 function App() {
   const [user, setUser] = useState(null);
 
-  // Load user from sessionStorage on app load
   useEffect(() => {
     const storedUser = sessionStorage.getItem("user");
     if (storedUser) {
